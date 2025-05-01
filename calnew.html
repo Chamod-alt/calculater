@@ -166,7 +166,7 @@ function firplu(){
 }   
 		function fir1(){
 
-      // document.getElementById("show").innerHTML = 1;
+     
       document.getElementById("show").innerHTML += 1;
        arr.push(1);
        
@@ -238,32 +238,19 @@ function firplu(){
     }
 
     function clearArray(arr) {
-    arr.length = 0;  // Set array length to 0, clearing it
+    arr.length = 0;  
 }
-   /* function ce(){
 
-    	
-    	 arr.pop();
-        for(let i =0; i<arr.length; i++){
-       
-     	text=arr.join("");
-        document.getElementById("show").innerHTML = text;
-     
-     let x=eval(text);
-     document.getElementById("rr").innerHTML = x;
-    }
-    
-    }*/
     function ce(){
-    arr.pop();  // Remove the last element from the array
-    let text = arr.join("");  // Rebuild the text from the array
+    arr.pop();  
+    let text = arr.join("");  
 
-    // Update the display with the updated text
+    
     document.getElementById("show").innerHTML = text;
 
-    // Only evaluate if there's still an expression left in the array
+  
     if (arr.length > 0) {
-        let x = eval(text.replace(/x/g, '*'||/%/g, "*0.01")); // Replace 'x' with '*' for multiplication
+        let x = eval(text.replace(/x/g, '*'||/%/g, "*0.01")); 
         document.getElementById("rr").innerHTML = x;
     } else {
         document.getElementById("rr").innerHTML = 0;
