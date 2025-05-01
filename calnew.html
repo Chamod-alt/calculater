@@ -1,0 +1,276 @@
+﻿<html>
+<head>
+	<title>calculater</title>
+	<style>
+		body{
+			background-color: black;
+			color:white;
+		}
+        button{
+            width: 80px;
+            height:70px;
+            font-size: 30px;
+        }
+        table,tr,td{
+            border:2px solid red;
+        }
+        .out{
+             border:2px solid red;
+             padding:0;
+             width:358px;
+             margin: auto;
+        }
+        .show{
+            text-align: right;
+            color:white;
+            font-size: 25px;
+            padding-top: 5px;
+            margin-right: 25px;
+            margin-bottom: 10px;
+
+        }
+        .rr{
+             text-align: right;
+            color:yellow;
+            font-size: 35px;
+            margin-bottom: 5px;
+            margin-top: 0;
+            margin-right: 25px;
+
+        }
+        .dash{
+            height:90px;
+            margin:0;
+            background-color: #28282B;
+        }
+        .main{
+            min-height: 100%;
+        }
+        h1{
+            text-align: center;
+            color:yellow;
+        }
+        button:hover{
+            background-color: #C3999B;
+        }
+        p{
+            margin: 0;
+        }
+
+        @media(max-width: 600px){
+            .main{
+                width: 100%;
+            }
+            .out{
+                height: 100%;
+                width: 100%;
+            }
+            table{
+                width:100%;
+            }
+            button{
+                width: 100%;
+            }
+        }
+	</style>
+</head>
+<body>
+    <div class="main">
+    <br>
+     <h1>CALCULATER</h1>
+    <br>
+   <div class="out">
+    <div class="dash">
+
+    <p id="show" class="show"></p>
+    
+    <p id="rr" class="rr">0</p>
+</div>
+
+	<table>
+		<tr>
+			<td><button value="1" onclick="fir1()">1</button></td>
+			<td><button value="2"  onclick="fir2()">2</button></td>
+			<td><button value="3"  onclick="fir3()">3</button></td>
+			
+           <td><button value="+"  onclick="firplu()">+</button></td>
+            
+		</tr>
+		<tr>
+			<td><button value="4" onclick="fir4()">4</button></td>
+			<td><button value="5"  onclick="fir5()">5</button></td>
+			<td><button value="6"  onclick="fir6()">6</button></td>
+			
+           <td><button value="-"  onclick="firmin()">-</button></td>
+            
+		</tr>
+		<tr>
+			<td><button value="7" onclick="fir7()">7</button></td>
+			<td><button value="8"  onclick="fir8()">8</button></td>
+			<td><button value="9"  onclick="fir9()">9</button></td>
+			
+           <td><button value="/"  onclick="firdiv()">/</button></td>
+            
+		</tr>
+		<tr>
+			<td><button value="." onclick="firdel()">.</button></td>
+			<td><button value="0"  onclick="fir0()">0</button></td>
+           <td><button value="0.01" onclick="precentage()">%</button></td>
+			<td><button value="X"  onclick="firmul()">x</button></td>
+			
+           
+            
+		</tr>
+		<tr>
+			<td><button value=""  onclick="delet()">CE</button></td>
+			<td><button value=""  onclick="ce()">del</button></td>
+            
+            <td colspan="2" ><button value="equ"  onclick="equ()" style="width:168px;background-color:#380F1F;color:white;font-size: 40px">=</button></td>
+
+		</tr>
+	</table>
+</div>
+</div>	
+	
+
+	<script>
+		let arr=[];
+		let text="";
+  
+
+function firplu(){
+	//document.getElementById("show").innerHTML = "+";
+      document.getElementById("show").innerHTML += "+";
+       arr.push("+");
+
+    } 
+    function firmin(){
+	//document.getElementById("show").innerHTML = "+";
+       document.getElementById("show").innerHTML += "-";
+       arr.push("-");
+
+    }
+
+    function firdiv(){
+	document.getElementById("show").innerHTML += "/";
+
+       arr.push("/");
+
+} 
+
+    function firmul(){
+	document.getElementById("show").innerHTML += "x";
+
+       arr.push("*");
+
+}   
+		function fir1(){
+
+      // document.getElementById("show").innerHTML = 1;
+      document.getElementById("show").innerHTML += 1;
+       arr.push(1);
+       
+}
+
+    function fir2(){
+    	 document.getElementById("show").innerHTML += 2;
+    	 arr.push(2);
+    }
+      function fir3(){
+    	 document.getElementById("show").innerHTML += 3;
+    	 arr.push(3);
+    }
+     function fir4(){
+    	 document.getElementById("show").innerHTML += 4;
+    	 arr.push(4);
+    }
+    function fir5(){
+    	 document.getElementById("show").innerHTML += 5;
+    	 arr.push(5);
+    }
+    function fir6(){
+    	 document.getElementById("show").innerHTML += 6;
+    	 arr.push(6);
+    }
+    function fir7(){
+    	 document.getElementById("show").innerHTML += 7;
+    	 arr.push(7);
+    }
+    function fir8(){
+    	 document.getElementById("show").innerHTML += 8;
+    	 arr.push(8);
+    }
+    function fir9(){
+    	 document.getElementById("show").innerHTML += 9;
+    	 arr.push(9);
+    }
+    function fir0(){
+    	 document.getElementById("show").innerHTML += 0;
+    	 arr.push(0);
+    }
+    function firdel(){
+    	 document.getElementById("show").innerHTML += ".";
+    	 arr.push(".");
+    }
+   function precentage(){
+    document.getElementById("show").innerHTML += "%";
+         arr.push("*0.01");
+   }
+    
+    function equ(){
+     //document.getElementById("arr").innerHTML = arr.join('');
+     for(let i =0; i<arr.length; i++){
+     	text=arr.join("");
+     
+     //document.getElementById("end").innerHTML = text;
+     let x=eval(text);
+     document.getElementById("rr").innerHTML = x;
+    }
+
+  }
+
+   function delet(){
+    	
+    	document.getElementById("rr").innerHTML=0;
+        document.getElementById("show").innerHTML = null;
+        clearArray(arr);
+        
+    }
+
+    function clearArray(arr) {
+    arr.length = 0;  // Set array length to 0, clearing it
+}
+   /* function ce(){
+
+    	
+    	 arr.pop();
+        for(let i =0; i<arr.length; i++){
+       
+     	text=arr.join("");
+        document.getElementById("show").innerHTML = text;
+     
+     let x=eval(text);
+     document.getElementById("rr").innerHTML = x;
+    }
+    
+    }*/
+    function ce(){
+    arr.pop();  // Remove the last element from the array
+    let text = arr.join("");  // Rebuild the text from the array
+
+    // Update the display with the updated text
+    document.getElementById("show").innerHTML = text;
+
+    // Only evaluate if there's still an expression left in the array
+    if (arr.length > 0) {
+        let x = eval(text.replace(/x/g, '*'||/%/g, "*0.01")); // Replace 'x' with '*' for multiplication
+        document.getElementById("rr").innerHTML = x;
+    } else {
+        document.getElementById("rr").innerHTML = 0;
+    }
+}
+
+    
+	</script>
+</body>
+</html>
